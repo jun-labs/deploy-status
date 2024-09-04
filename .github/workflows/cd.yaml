@@ -1,0 +1,19 @@
+name: Deploy
+
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main
+
+jobs:
+  deploy:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    environment: ${{ github.event.pull_request.base.ref }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
