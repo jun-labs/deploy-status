@@ -13,4 +13,9 @@ class HealthCheckApi {
     fun healthCheck(): ResponseEntity<String> {
         return ResponseEntity.ok("200 OK")
     }
+
+    @GetMapping(path = ["/v2"])
+    fun healthCheckV2(): ResponseEntity<String> {
+        return ResponseEntity.ok("200 OK")
+    }
 }
